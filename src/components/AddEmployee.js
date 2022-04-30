@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import EmployeeService from '../services/EmployeeService'
 import { Link, useNavigate } from 'react-router-dom';
 
-export class AddEmployee extends Component {
+export class AddEmployeeClass extends Component {
   constructor(props) {
     super(props)
     
@@ -68,7 +68,7 @@ addEmployee = (e) => {
                             </div>
 
                             <button className="btn btn-success" onClick={this.addEmployee}>Save</button>                          
-                            <Link to='/employees' className="btn btn-danger" > Cancel using link</Link>
+                            <Link to='/employees' className="btn btn-danger" > Cancel</Link>
                         </form>
                     </div>
                 </div>
@@ -78,10 +78,11 @@ addEmployee = (e) => {
   }
 }
 
-export default function(props) {
+// todoeslint-disable-next-line
+export default function AddEmployee(props) {
   const navigate = useNavigate();
 
-  return <AddEmployee {...props} navigate={navigate} />;
+  return <AddEmployeeClass {...props} navigate={navigate} />;
 }
 
 // export default AddEmployee

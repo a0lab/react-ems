@@ -9,7 +9,14 @@ export class ListEmployee extends Component {
     this.state = {
       employees: []
     }
+    this.deleteEmployee = this.deleteEmployee.bind(this);
   }
+
+  deleteEmployee(id){
+    EmployeeService.deleteEmployee(id).then( res => {
+        this.setState({employees: this.state.employees.filter(employee => employee.id !== id)});
+    });
+}
 
   componentDidMount() {
     EmployeeService.getEmployees().then((response) => {
@@ -50,7 +57,7 @@ export class ListEmployee extends Component {
                 <td>{employee.emailId}</td>
                 <td>
                 <button className="btn btn-info">Edit</button>
-                <button className="btn btn-danger">Delete</button>
+                <button style={{marginLeft: "10px"}} onClick={ () => this.deleteEmployee(employee.id)} className="btn btn-danger">Delete </button>
             </td>
         </tr>
             
