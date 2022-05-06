@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Employees from './Employees';
 import ListEmployee from './components/ListEmployee';
 import AddEmployee from './components/AddEmployee';
+import EditEmployee from './components/EditEmployee';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -20,6 +21,9 @@ root.render(
           <Route index element={<ListEmployee/>}/>
           <Route path='list' element={<ListEmployee/>}/> 
           <Route path='add' element={<AddEmployee/>}/> 
+          <Route path='edit'>  
+            <Route path=':id' element={<EditEmployee/>}></Route>
+          </Route>
         </Route>
           
         {/* <Route
@@ -31,14 +35,14 @@ root.render(
           }
         /> */}
         <Route
-          path="*"
-          element={
-            <main style={{ padding: "1rem" }}>
-              <p>There's nothing here!</p>
-            </main>
-          }
-        />
-      </Route>
+            path="*"
+            element={
+              <main style={{ padding: "1rem" }}>
+                <p>There's nothing here!</p>
+              </main>
+            }
+          />
+          </Route>
     </Routes>
   </BrowserRouter>
   </React.StrictMode>
